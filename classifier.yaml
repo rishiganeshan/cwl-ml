@@ -1,0 +1,7 @@
+train_pyfile:
+  class: File
+  location: train_classifier.py
+
+test_pyfile:
+  class: File
+  location: test_classifier.py
