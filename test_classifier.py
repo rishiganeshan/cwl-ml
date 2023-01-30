@@ -23,7 +23,7 @@ CLI.add_argument(
 args = CLI.parse_args()
 X, y = load_iris(return_X_y=True)
 
-data = args.data
+data = [args.data]
 file_loc = args.classifier[0]
 print(data)
 print(file_loc)
