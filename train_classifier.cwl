@@ -14,6 +14,10 @@ arguments: [$(inputs.pyfile)]
 # Command arguments
 
 # Outputs section
-outputs: []
+outputs:
+  clf:
+    type: File
+    outputBinding:
+      glob: std1.pkl
 
 # Running in a container

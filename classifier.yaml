@@ -5,3 +5,7 @@ train_pyfile:
 test_pyfile:
   class: File
   location: test_classifier.py
+
+test_data_X: [5.1, 3.5, 1.4, 0.2]
+  
+
