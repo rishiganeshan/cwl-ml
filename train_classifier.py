@@ -8,6 +8,11 @@ from sklearn.tree import DecisionTreeClassifier
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.naive_bayes import GaussianNB
 
+from sklearn.cluster import KMeans
+from sklearn.mixture import GaussianMixture
+
+
+
 X, y = load_iris(return_X_y=True)
 
 
@@ -17,7 +22,10 @@ X, y = load_iris(return_X_y=True)
 # clf = GaussianProcessClassifier(random_state=0).fit(X, y)
 # clf = DecisionTreeClassifier().fit(X, y)
 # clf = RandomForestClassifier().fit(X, y)
-clf = GaussianNB().fit(X, y)
+# clf = GaussianNB().fit(X, y)
+
+clf = GaussianMixture().fit(X)
+# clf = KMeans().fit(X)
 
 
 file_name = 'std1.pkl'

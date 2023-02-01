@@ -1,8 +1,4 @@
-import sklearn
 import pickle
-from sklearn.datasets import load_iris
-from sklearn.linear_model import LogisticRegression
-import sys
 import argparse
 # defined command line options
 # this also generates --help and error handling
@@ -20,7 +16,6 @@ CLI.add_argument(
   default=[]
 )
 args = CLI.parse_args()
-X, y = load_iris(return_X_y=True)
 
 data = [args.data]
 file_loc = args.classifier[0]
@@ -32,6 +27,6 @@ with open(file_loc, 'rb') as file:
     clf = pickle.load(file)
     print(f'Object successfully loaded')
 
-
-print(clf.predict_proba(data))
+print(clf.predict(data))
+# print(clf.predict_proba(data))
 # Eventually return this value
