@@ -15,8 +15,7 @@ CLI.add_argument(
 )
 CLI.add_argument(
   "--data",  # name on the CLI - drop the `--` for positional/required parameters
-  nargs="*",  # 0 or more values expected => creates a list
-  action='append',
+  nargs="*",
   type=float,
   default=[]
 )
