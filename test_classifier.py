@@ -18,10 +18,11 @@ CLI.add_argument(
 )
 args = CLI.parse_args()
 
-test_data_file = args.classifier[0]
+test_data_file = args.data[0]
 clf_file = args.classifier[0]
 
 test_data = pd.read_csv(test_data_file)
+print(test_data)
 
 
 with open(clf_file, 'rb') as file:
