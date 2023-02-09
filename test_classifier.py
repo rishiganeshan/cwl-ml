@@ -1,5 +1,6 @@
 import pickle
 import argparse
+import pandas as pd
 # defined command line options
 # this also generates --help and error handling
 CLI=argparse.ArgumentParser()
@@ -11,22 +12,19 @@ CLI.add_argument(
 )
 CLI.add_argument(
   "--data",  # name on the CLI - drop the `--` for positional/required parameters
-  nargs="*",
-  type=float,
-  default=[]
+  nargs=1,
+  type=str,
+  default=""
 )
 args = CLI.parse_args()
 
-data = [args.data]
-file_loc = args.classifier[0]
-print(data)
-print(file_loc)
+test_data_file = args.classifier[0]
+clf_file = args.classifier[0]
+
+test_data = pd.read_csv(test_data_file)
 
 
-with open(file_loc, 'rb') as file:
+with open(clf_file, 'rb') as file:
     clf = pickle.load(file)
-    print(f'Object successfully loaded')
 
-print(clf.predict(data))
-# print(clf.predict_proba(data))
-# Eventually return this value
+print(clf.predict(test_data))

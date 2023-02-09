@@ -16,9 +16,9 @@ arguments: [$(inputs.pyfile), --data, $(inputs.data)]
 
 # Outputs section
 outputs:
-  clf:
+  labelled_data:
     type: File
     outputBinding:
-      glob: clf.pkl
+      glob: labelled_data.pkl
 
 # Running in a container

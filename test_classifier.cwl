@@ -5,13 +5,13 @@ class: CommandLineTool
 # Command line tool inputs
 inputs:
     pyfile: File
-    X: float[]
+    test_data: File
     clf: File
 
 # Specifying the program to run
 baseCommand: [python3]
 
-arguments: [$(inputs.pyfile), --classifier, $(inputs.clf), --data, $(inputs.X)]
+arguments: [$(inputs.pyfile), --classifier, $(inputs.clf), --data, $(inputs.test_data)]
 
 # Command arguments
 

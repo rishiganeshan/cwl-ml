@@ -1,0 +1,75 @@
+potentialCases:
+  class: File
+  path: replaceMe.csv
+inputModule1:
+  class: File
+  path: python/read-potential-cases.py
+inputModule2:
+  class: File
+  path: python/anxiety-disorders-state---primary.py
+inputModule3:
+  class: File
+  path: python/anxiety-disorders-agoraphobia---primary.py
+inputModule4:
+  class: File
+  path: python/anxiety-disorders-fear---primary.py
+inputModule5:
+  class: File
+  path: python/anxiety-disorders-attacks---primary.py
+inputModule6:
+  class: File
+  path: python/specific-anxiety-disorders---primary.py
+inputModule7:
+  class: File
+  path: python/anxiety-disorders---primary.py
+inputModule8:
+  class: File
+  path: python/anxiety-disorders-insight---primary.py
+inputModule9:
+  class: File
+  path: python/phobic-anxiety-disorders---primary.py
+inputModule10:
+  class: File
+  path: python/anxiety-disorders-unspecified---primary.py
+inputModule11:
+  class: File
+  path: python/panic-anxiety-disorders---primary.py
+inputModule12:
+  class: File
+  path: python/anxiety-disorders-depression---primary.py
+inputModule13:
+  class: File
+  path: python/anxiety-disorders-neurosis---primary.py
+inputModule14:
+  class: File
+  path: python/anxiety-disorders-claustrophobia---primary.py
+inputModule15:
+  class: File
+  path: python/anxiety-disorders-acrophobia---primary.py
+inputModule16:
+  class: File
+  path: python/social-anxiety-disorders---primary.py
+inputModule17:
+  class: File
+  path: python/neurotic-anxiety-disorders---primary.py
+inputModule18:
+  class: File
+  path: python/other-anxiety-disorders---primary.py
+inputModule19:
+  class: File
+  path: python/depressive-anxiety-disorders---primary.py
+inputModule20:
+  class: File
+  path: python/anxiety-disorders-history---primary.py
+inputModule21:
+  class: File
+  path: python/mixed-anxiety-disorders---primary.py
+inputModule22:
+  class: File
+  path: python/anxiety-disorders-counselling---primary.py
+inputModule23:
+  class: File
+  path: python/anxiety-disorders---secondary.py
+inputModule24:
+  class: File
+  path: python/output-cases.py
