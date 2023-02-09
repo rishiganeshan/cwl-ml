@@ -10,6 +10,10 @@ load_data_pyfile:
   class: File
   location: load_data.py
 
+load_test_data_pyfile:
+  class: File
+  location: load_test_data.py
+
 raw_data:
   class: File
   location: mock_train_data.csv

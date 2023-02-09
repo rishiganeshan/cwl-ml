@@ -4,6 +4,7 @@ class: Workflow
 inputs:
   raw_data: File
   load_data_pyfile: File
+  load_test_data_pyfile: File
   train_pyfile: File
   test_pyfile: File
   test_data: File
@@ -14,6 +15,12 @@ steps:
       data: raw_data
       pyfile: load_data_pyfile
     out: [labelled_data]
+  load_test_data:
+    run: load_test_data.cwl
+    in: 
+      data: test_data
+      pyfile: load_test_data_pyfile
+    out: [labelled_test_data]
   train:
     run: train_classifier.cwl
     in:
@@ -24,7 +31,7 @@ steps:
     run: test_classifier.cwl
     in:
       pyfile: test_pyfile
-      test_data: test_data
+      test_data: load_test_data/labelled_test_data
       clf: train/clf
     out: []
 

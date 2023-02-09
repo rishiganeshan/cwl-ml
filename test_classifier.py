@@ -18,10 +18,17 @@ CLI.add_argument(
 )
 args = CLI.parse_args()
 
-test_data_file = args.data[0]
 clf_file = args.classifier[0]
+test_data_file = args.data[0]
 
-test_data = pd.read_csv(test_data_file)
+with open(clf_file, 'rb') as file:
+    clf = pickle.load(file)
+    
+
+
+with open(test_data_file, 'rb') as file:
+    test_data = pickle.load(file)
+
 print(test_data)
 
 
