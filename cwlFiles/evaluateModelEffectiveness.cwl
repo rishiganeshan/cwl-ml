@@ -6,13 +6,13 @@ class: CommandLineTool
 inputs:
     pyfile: File
     model: File
-    ds_test: File
+    np_test: File
 
 # Specifying the program to run
 baseCommand: [python3]
 
 arguments: [$(inputs.pyfile), --model, $(inputs.model), 
---ds_test, $(inputs.ds_test)]
+--np_test, $(inputs.np_test)]
 
 # Command arguments
 

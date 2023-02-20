@@ -10,10 +10,6 @@ trainModel:
   class: File
   location: pythonFiles/trainModel.py
 
-createOptimiser:
-  class: File
-  location: pythonFiles/createOptimiser.py
-
 evaluateModelEffectiveness:
   class: File
   location: pythonFiles/evaluateModelEffectiveness.py
