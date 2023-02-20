@@ -1,25 +1,26 @@
-train_pyfile:
+importData:
   class: File
-  location: train_classifier.py
+  location: pythonFiles/importData.py
 
-test_pyfile:
+buildModel:
   class: File
-  location: test_classifier.py
+  location: pythonFiles/buildModel.py
 
-load_data_pyfile:
+trainModel:
   class: File
-  location: load_data.py
+  location: pythonFiles/trainModel.py
 
-load_test_data_pyfile:
+createOptimiser:
   class: File
-  location: load_test_data.py
+  location: pythonFiles/createOptimiser.py
 
-raw_data:
+evaluateModelEffectiveness:
   class: File
-  location: mock_train_data.csv
+  location: pythonFiles/evaluateModelEffectiveness.py
 
-test_data:
+makePredictions:
   class: File
-  location: mock_test_data.csv
+  location: pythonFiles/makePredictions.py
+
 
   

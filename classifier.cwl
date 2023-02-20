@@ -2,37 +2,55 @@ cwlVersion: v1.2
 class: Workflow
 
 inputs:
-  raw_data: File
-  load_data_pyfile: File
-  load_test_data_pyfile: File
-  train_pyfile: File
-  test_pyfile: File
-  test_data: File
+  importData: File
+  buildModel: File
+  trainModel: File
+  createOptimiser: File
+  evaluateModelEffectiveness: File
+  makePredictions: File
+
 steps:
-  load_data:
-    run: load_data.cwl
-    in: 
-      data: raw_data
-      pyfile: load_data_pyfile
-    out: [labelled_data]
-  load_test_data:
-    run: load_test_data.cwl
-    in: 
-      data: test_data
-      pyfile: load_test_data_pyfile
-    out: [labelled_test_data]
-  train:
-    run: train_classifier.cwl
+  importData:
+    run: cwlFiles/importData.cwl
     in:
-      data: load_data/labelled_data
-      pyfile: train_pyfile
-    out: [clf]
-  test:
-    run: test_classifier.cwl
+      pyfile: importData
+    out: [features, labels, ds_test, class_names]
+  buildModel:
+    run: cwlFiles/buildModel.cwl
+    in: 
+      pyfile: buildModel
+      features: importData/features
+      labels: importData/labels
+    out: [model]
+  trainModel:
+    run: cwlFiles/trainModel.cwl
     in:
-      pyfile: test_pyfile
-      test_data: load_test_data/labelled_test_data
-      clf: train/clf
+      pyfile: trainModel
+      features: importData/features
+      labels: importData/labels
+      model: buildModel/model
+    out: [model]
+  createOptimiser:
+    run: cwlFiles/createOptimiser.cwl
+    in:
+      pyfile: createOptimiser
+      features: importData/features
+      labels: importData/labels
+      model: trainModel/model
+    out: [model]
+  evaluateModelEffectiveness:
+    run: cwlFiles/evaluateModelEffectiveness.cwl
+    in:
+      pyfile: evaluateModelEffectiveness
+      model: createOptimiser/model
+      ds_test: importData/ds_test
+    out: []
+  makePredictions:
+    run: cwlFiles/makePredictions.cwl
+    in:
+      pyfile: makePredictions
+      model: createOptimiser/model
+      class_names: importData/class_names
     out: []
 
   
