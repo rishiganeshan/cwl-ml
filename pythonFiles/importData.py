@@ -47,3 +47,26 @@ plt.ylabel("Culmen Length")
 plt.show()
 
 
+file_name = 'features.pkl'
+with open(file_name, 'wb') as file:
+    pickle.dump(features, file)
+    print(f'Object successfully saved to "{file_name}"')
+
+file_name = 'labels.pkl'
+with open(file_name, 'wb') as file:
+    pickle.dump(labels, file)
+    print(f'Object successfully saved to "{file_name}"')
+
+file_name = 'ds_test.pkl'
+with open(file_name, 'wb') as file:
+    pickle.dump(ds_test, file)
+    print(f'Object successfully saved to "{file_name}"')
+
+file_name = 'class_names.pkl'
+with open(file_name, 'wb') as file:
+    pickle.dump(class_names, file)
+    print(f'Object successfully saved to "{file_name}"')
+
+
+
+

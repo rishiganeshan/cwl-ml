@@ -2,7 +2,46 @@ import os
 import tensorflow as tf
 import tensorflow_datasets as tfds
 import matplotlib.pyplot as plt
+import pickle
+import argparse
+# defined command line options
+# this also generates --help and error handling
+CLI=argparse.ArgumentParser()
+CLI.add_argument(
+  "--features",  # name on the CLI - drop the `--` for positional/required parameters
+  nargs=1,  # 0 or more values expected => creates a list
+  type=str,
+  default=""
+)
+CLI.add_argument(
+  "--labels",  # name on the CLI - drop the `--` for positional/required parameters
+  nargs=1,
+  type=str,
+  default=""
+)
+CLI.add_argument(
+  "--model",  # name on the CLI - drop the `--` for positional/required parameters
+  nargs=1,
+  type=str,
+  default=""
+)
+args = CLI.parse_args()
 
+featuresFile = args.features[0]
+labelsFile = args.labels[0]
+modelFile = args.model[0]
+
+with open(featuresFile, 'rb') as file:
+    features = pickle.load(file)
+with open(labelsFile, 'rb') as file:
+    labels = pickle.load(file)
+with open(modelFile, 'rb') as file:
+    model = pickle.load(file)
+
+def grad(model, inputs, targets):
+  with tf.GradientTape() as tape:
+    loss_value = loss(model, inputs, targets, training=True)
+  return loss_value, tape.gradient(loss_value, model.trainable_variables)
 
 
 optimizer = tf.keras.optimizers.SGD(learning_rate=0.01)
@@ -64,4 +103,7 @@ axes[1].set_xlabel("Epoch", fontsize=14)
 axes[1].plot(train_accuracy_results)
 plt.show()
 
-
+file_name = 'model.pkl'
+with open(file_name, 'wb') as file:
+    pickle.dump(model, file)
+    print(f'Object successfully saved to "{file_name}"')
