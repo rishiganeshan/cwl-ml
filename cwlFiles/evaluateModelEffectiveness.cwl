@@ -6,7 +6,7 @@ class: CommandLineTool
 inputs:
     pyfile: File
     model: File
-    ds_test: File
+    ds_test: Directory
 
 # Specifying the program to run
 baseCommand: [python3]

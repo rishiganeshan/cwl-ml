@@ -8,7 +8,7 @@ inputs:
     features: File
     labels: File
     model: File
-    ds_train_batch: File
+    ds_train_batch: Directory
 
 # Specifying the program to run
 baseCommand: [python3]

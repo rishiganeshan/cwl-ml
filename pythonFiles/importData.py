@@ -25,7 +25,6 @@ ds_train = ds_split[1]
 assert isinstance(ds_test, tf.data.Dataset)
 
 print(info.features)
-ds_test = np.vstack(tfds.as_numpy(ds_test))
 df_test = tfds.as_dataframe(ds_test.take(5), info)
 print("Test dataset sample: ")
 print(df_test)

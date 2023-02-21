@@ -24,7 +24,7 @@ outputs:
     outputBinding:
       glob: labels.pkl
   ds_test:
-    type: File
+    type: Directory
     outputBinding:
       glob: ds_test.pkl
   class_names:
@@ -32,7 +32,7 @@ outputs:
     outputBinding:
       glob: class_names.pkl
   ds_train_batch:
-    type: File
+    type: Directory
     outputBinding:
       glob: ds_train_batch.pkl
     
