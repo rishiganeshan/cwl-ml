@@ -25,7 +25,7 @@ ds_train = ds_split[1]
 assert isinstance(ds_test, tf.data.Dataset)
 
 print(info.features)
-np_test = np.vstack(tfds.as_numpy(ds_test))
+ds_test = np.vstack(tfds.as_numpy(ds_test))
 df_test = tfds.as_dataframe(ds_test.take(5), info)
 print("Test dataset sample: ")
 print(df_test)
@@ -34,10 +34,8 @@ df_train = tfds.as_dataframe(ds_train.take(5), info)
 print("Train dataset sample: ")
 print(df_train)
 
-ds_train_batch = ds_train.batch(32)
-tfds.as_numpy(ds_train_batch)
-# Hstack vstack dstack hmmmm
-np_train_batch = np.dstack(tfds.as_numpy(ds_train_batch))
+ds_train_batch = ds_train.batch(32, drop_remainder=True)
+ds_train_batch.save('ds_train_batch')
 
 features, labels = next(iter(ds_train_batch))
 
@@ -64,17 +62,13 @@ with open(file_name, 'wb') as file:
     pickle.dump(labels, file)
     print(f'Object successfully saved to "{file_name}"')
 
-file_name = 'np_test.pkl'
-print(type(np_test))
-with open(file_name, 'wb') as file:
-    pickle.dump(np_test, file)
-    print(f'Object successfully saved to "{file_name}"')
+file_name = 'ds_test.pkl'
+ds_test.save(file_name)
+print(f'Object successfully saved to "{file_name}"')
 
-file_name = 'np_train_batch.pkl'
-print(type(np_test))
-with open(file_name, 'wb') as file:
-    pickle.dump(np_train_batch, file)
-    print(f'Object successfully saved to "{file_name}"')
+file_name = 'ds_train_batch.pkl'
+ds_train_batch.save(file_name)
+print(f'Object successfully saved to "{file_name}"')
 
 file_name = 'class_names.pkl'
 with open(file_name, 'wb') as file:

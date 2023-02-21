@@ -26,7 +26,7 @@ CLI.add_argument(
   default=""
 )
 CLI.add_argument(
-  "--np_train_batch",  # name on the CLI - drop the `--` for positional/required parameters
+  "--ds_train_batch",  # name on the CLI - drop the `--` for positional/required parameters
   nargs=1,
   type=str,
   default=""
@@ -36,7 +36,7 @@ args = CLI.parse_args()
 featuresFile = args.features[0]
 labelsFile = args.labels[0]
 modelFile = args.model[0]
-np_train_batchFile = args.np_train_batch[0]
+ds_train_batchFile = args.ds_train_batch[0]
 
 
 with open(featuresFile, 'rb') as file:
@@ -45,8 +45,7 @@ with open(labelsFile, 'rb') as file:
     labels = pickle.load(file)
 with open(modelFile, 'rb') as file:
     model = pickle.load(file)
-with open(np_train_batchFile, 'rb') as file:
-    np_train_batch = pickle.load(file)
+ds_train_batch = tf.data.Dataset.load('ds_train_batchFile')
     
 loss_object = tf.keras.losses.SparseCategoricalCrossentropy(from_logits=True)
 

@@ -13,7 +13,7 @@ steps:
     run: cwlFiles/importData.cwl
     in:
       pyfile: importData
-    out: [features, labels, np_test, class_names, np_train_batch]
+    out: [features, labels, ds_test, class_names, ds_train_batch]
   buildModel:
     run: cwlFiles/buildModel.cwl
     in: 
@@ -28,14 +28,14 @@ steps:
       features: importData/features
       labels: importData/labels
       model: buildModel/model
-      np_train_batch: importData/np_train_batch
+      ds_train_batch: importData/ds_train_batch
     out: [model]
   evaluateModelEffectiveness:
     run: cwlFiles/evaluateModelEffectiveness.cwl
     in:
       pyfile: evaluateModelEffectiveness
       model: trainModel/model
-      np_test: importData/np_test
+      ds_test: importData/ds_test
     out: []
   makePredictions:
     run: cwlFiles/makePredictions.cwl

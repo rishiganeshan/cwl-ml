@@ -23,18 +23,18 @@ outputs:
     type: File
     outputBinding:
       glob: labels.pkl
-  np_test:
+  ds_test:
     type: File
     outputBinding:
-      glob: np_test.pkl
+      glob: ds_test.pkl
   class_names:
     type: File
     outputBinding:
       glob: class_names.pkl
-  np_train_batch:
+  ds_train_batch:
     type: File
     outputBinding:
-      glob: np_train_batch.pkl
+      glob: ds_train_batch.pkl
     
 
 # Running in a container

@@ -14,7 +14,7 @@ CLI.add_argument(
   default=""
 )
 CLI.add_argument(
-  "--np_test",  # name on the CLI - drop the `--` for positional/required parameters
+  "--ds_test",  # name on the CLI - drop the `--` for positional/required parameters
   nargs=1,
   type=str,
   default=""
@@ -22,16 +22,15 @@ CLI.add_argument(
 args = CLI.parse_args()
 
 modelFile = args.model[0]
-ds_testFile = args.np_test[0]
+ds_testFile = args.ds_test[0]
 
 with open(modelFile, 'rb') as file:
     model = pickle.load(file)
-with open(ds_testFile, 'rb') as file:
-    np_test = pickle.load(file)
+ds_test = tf.data.Dataset.load('ds_testFile')
 
 
 test_accuracy = tf.keras.metrics.Accuracy()
-ds_test_batch = np_test.batch(10)
+ds_test_batch = ds_test.batch(10)
 
 for (x, y) in ds_test_batch:
   # training=False is needed only if there are layers with different
