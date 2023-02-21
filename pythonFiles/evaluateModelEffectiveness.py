@@ -26,7 +26,7 @@ ds_testFile = args.ds_test[0]
 
 with open(modelFile, 'rb') as file:
     model = pickle.load(file)
-ds_test = tf.data.Dataset.load('ds_testFile')
+ds_test = tf.data.Dataset.load(ds_testFile)
 
 
 test_accuracy = tf.keras.metrics.Accuracy()

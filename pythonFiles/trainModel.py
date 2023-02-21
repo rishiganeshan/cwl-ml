@@ -45,7 +45,7 @@ with open(labelsFile, 'rb') as file:
     labels = pickle.load(file)
 with open(modelFile, 'rb') as file:
     model = pickle.load(file)
-ds_train_batch = tf.data.Dataset.load('ds_train_batchFile')
+ds_train_batch = tf.data.Dataset.load(ds_train_batchFile)
     
 loss_object = tf.keras.losses.SparseCategoricalCrossentropy(from_logits=True)
 
@@ -122,7 +122,7 @@ axes[0].plot(train_loss_results)
 axes[1].set_ylabel("Accuracy", fontsize=14)
 axes[1].set_xlabel("Epoch", fontsize=14)
 axes[1].plot(train_accuracy_results)
-plt.show()
+# plt.show()
 
 file_name = 'model.pkl'
 with open(file_name, 'wb') as file:
