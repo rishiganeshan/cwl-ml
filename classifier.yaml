@@ -1,22 +1,10 @@
-importData:
+train:
   class: File
-  location: pythonFiles/importData.py
+  location: pythonFiles/train.py
 
-buildModel:
+cfg:
   class: File
-  location: pythonFiles/buildModel.py
-
-trainModel:
-  class: File
-  location: pythonFiles/trainModel.py
-
-evaluateModelEffectiveness:
-  class: File
-  location: pythonFiles/evaluateModelEffectiveness.py
-
-makePredictions:
-  class: File
-  location: pythonFiles/makePredictions.py
+  location: cfg2.conf
 
 
   
