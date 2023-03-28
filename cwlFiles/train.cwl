@@ -14,6 +14,6 @@ arguments: [$(inputs.pyfile)]
 # Command arguments
 
 # Outputs section
-outputs:
+outputs: []
     
 # Running in a container
