@@ -1,13 +1,10 @@
-
+print("YOoasdasdakjsdbfjsdfbjhsdbkjhsdbfjhsdbfhjsbdfhjbkjsdfbhjsdbfsbfd")
 import tensorflow as tf
+import sklearn
 from sklearn.model_selection import train_test_split
 import numpy as np
-import matplotlib.pyplot as plt
 import os
 from math import pi as PI
-
-plt.style.use('ggplot')
-
 
 
 
@@ -27,18 +24,12 @@ eps = np.random.normal(0, 3, n_obs)
 y = x**2 + 6 + eps
 
 # plot
-fig = plt.figure(figsize=(7,7))
-ax = plt.axes()
-ax.set_title('y = x\u00b2 + 6 + Ɛ')
-ax.set_xlabel("x")
-ax.set_ylabel("y")
-ax.scatter(x, y, c = 'k')
 
 
 
 
 
-
+print("YOoasdasdakjsdbfjsdfbjhsdbkjhsdbfjhsdbfhjsbdfhjbkjsdfbhjsdbfsbfd")
 
 
 def split_train_val_test(x, y, train_size=0.6, val_size=0.2, test_size=0.2):
@@ -79,24 +70,12 @@ x_train, y_train, x_val, y_val, x_test, y_test = split_train_val_test(x, y,
 
 
 
-fig = plt.figure(figsize = (7,7))
-ax = plt.axes()
-ax.set_title('y = x\u00b2 + 6 + Ɛ')
-ax.set_xlabel("x")
-ax.set_ylabel("y")
-
-ax.scatter(x_train, y_train, label = "Train set", color="#264653")
-ax.scatter(x_val, y_val, label = "Validation set", color="#2a9d8f")
-ax.scatter(x_test, y_test, label = "Test set", color="#e76f51")
-ax.legend()
 
 
 
 
 
-
-
-
+print("YOoasdasdakjsdbfjsdfbjhsdbkjhsdbfjhsdbfhjsbdfhjbkjsdfbhjsdbfsbfd")
 
 
 
@@ -136,10 +115,7 @@ def train_save_model(model, n_epochs = 10, early_stop_patience = 2, learning_rat
                         epochs = n_epochs,
                         validation_data = (x_val, y_val),
                         callbacks=[early_stop])
-  # plot training history
-  plt.plot(model_fit.history["loss"], label="loss")
-  plt.plot(model_fit.history["val_loss"], label="val_loss")
-  plt.legend()
+
 
   # save model
   path = get_model_dir()
@@ -148,7 +124,7 @@ def train_save_model(model, n_epochs = 10, early_stop_patience = 2, learning_rat
 
 
 
-
+print("YOoasdasdakjsdbfjsdfbjhsdbkjhsdbfjhsdbfhjsbdfhjbkjsdfbhjsdbfsbfd")
 
 
 
@@ -164,7 +140,7 @@ train_save_model(model1,
 
 
 
-
+print("YOoasdasdakjsdbfjsdfbjhsdbkjhsdbfjhsdbfhjsbdfhjbkjsdfbhjsdbfsbfd")
 
 
 
@@ -181,6 +157,7 @@ train_save_model(model2,
 
 
 
+print("YOoasdasdakjsdbfjsdfbjhsdbkjhsdbfjhsdbfhjsbdfhjbkjsdfbhjsdbfsbfd")
 
 
 
@@ -188,14 +165,19 @@ train_save_model(model2,
 
 
 
-fig = plt.figure(figsize = (7,7))
-ax = plt.axes()
-ax.set_title('Test set predictions')
-ax.set_xlabel("x")
-ax.set_ylabel("y")
 
-ax.scatter(x_test, y_test, label = "Test set", color="#264653")
-ax.scatter(x_test, model1.predict(x_test), label = "#1: Dense(1)", color="#2a9d8f")
-ax.scatter(x_test, model2.predict(x_test), label = "#2: Dense(1000)-Dense(1)", color="#e76f51")
-ax.legend()
+print("YOoasdasdakjsdbfjsdfbjhsdbkjhsdbfjhsdbfhjsbdfhjbkjsdfbhjsdbfsbfd")
 
+# ...
+
+# def get_model_dir():
+#     path = "./saved_models"
+#     # ...
+#     return path + "/" + current_model + "/"
+
+# # ...
+
+# if __name__ == "__main__":
+#     os.makedirs("saved_models", exist_ok=True)
+#     train_save_model(model1, n_epochs=50, early_stop_patience=5)
+#     train_save_model(model2, n_epochs=1000, early_stop_patience=5)
