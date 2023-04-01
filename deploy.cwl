@@ -1,19 +1,28 @@
+# deploy.cwl
 cwlVersion: v1.0
 class: CommandLineTool
-baseCommand: ["python", "deploy.py"]
+baseCommand: ["python"]
 
 requirements:
   DockerRequirement:
-    dockerPull: "tensorflow/tensorflow:latest"
+    dockerImageId: custom
+    dockerFile: 
+      $include: Dockerfile
 
 inputs:
+  deploy_script:
+    type: File
+    inputBinding:
+      position: 1
   saved_models:
     type: Directory
     inputBinding:
-      position: 1
+      position: 2
 
 outputs:
   predictions:
     type: File
     outputBinding:
-      glob: "predictions.txt"
+      glob: "predictions.csv"
+
+stdout: deploy.log

@@ -1,3 +1,11 @@
 train_script:
   class: File
   path: train.py
+
+deploy_script:
+  class: File
+  path: deploy.py
+
+dockerPath:
+  class: File
+  path: DockerFile

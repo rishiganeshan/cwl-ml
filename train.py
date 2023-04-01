@@ -80,7 +80,8 @@ print("YOoasdasdakjsdbfjsdfbjhsdbkjhsdbfjhsdbfhjsbdfhjbkjsdfbhjsdbfsbfd")
 
 
 
-path = "./saved_models"
+path = "saved_models"
+
 
 def get_model_dir():
   """Returns the path where to save the current model.

@@ -4,7 +4,10 @@ baseCommand: ["python"]
 
 requirements:
   DockerRequirement:
-    dockerPull: "tensorflow/tensorflow:latest"
+    # dockerPull: "continuumio/anaconda3"
+    dockerImageId: custom
+    dockerFile: 
+      $include: Dockerfile
 
 inputs:
   train_script:
