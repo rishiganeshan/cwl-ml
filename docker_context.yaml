@@ -1,5 +1,0 @@
-class: Directory
-basename: docker_context
-listing:
-  - class: File
-    location: Dockerfile

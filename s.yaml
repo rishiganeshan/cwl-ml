@@ -1,0 +1,3 @@
+serve_model_script:
+  class: File
+  path: serve_model.py

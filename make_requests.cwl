@@ -1,28 +1,22 @@
-# deploy.cwl
 cwlVersion: v1.0
 class: CommandLineTool
-baseCommand: ["python"]
-
+baseCommand: ["python", "make_requests.py"]
 requirements:
   DockerRequirement:
     dockerImageId: custom
     dockerFile: 
       $include: Dockerfile
-
 inputs:
-  deploy_script:
+  make_requests_script:
     type: File
-    inputBinding:
-      position: 1
-  saved_models:
-    type: Directory
-    inputBinding:
-      position: 2
-
+  dummy:
+    type: string
+# outputs: []
 outputs:
   predictions:
     type: File
     outputBinding:
-      glob: "predictions.csv"
+      glob: "predictions.txt"
 
-stdout: deploy.log
+
+

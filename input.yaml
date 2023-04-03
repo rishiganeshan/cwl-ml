@@ -1,11 +1,9 @@
 train_script:
   class: File
   path: train.py
-
-deploy_script:
+serve_model_script:
   class: File
-  path: deploy.py
-
-dockerPath:
+  path: serve_model.py
+make_requests_script:
   class: File
-  path: DockerFile
+  path: make_requests.py
